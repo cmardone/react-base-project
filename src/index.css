@@ -51,3 +51,14 @@ nav li a {
   color: grey;
   transition: all 0.3s ease-out;
 }
+
+.product-card-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.logo-image {
+  height: 100px;
+  margin-top: 10px;
+}
