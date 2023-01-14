@@ -8,18 +8,15 @@ import {
 } from 'react-router-dom'
 import { routes } from './routes'
 import logo from '../assets/react.svg'
+import styles from './Navigation.module.css'
 
 export const Navigation = () => {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<h4>Loading...</h4>}>
       <BrowserRouter>
         <div className="main-layout">
           <nav>
-            <img
-              src={logo}
-              alt="React Logo"
-              style={{ marginTop: '10px', height: '100px' }}
-            />
+            <img src={logo} alt="React Logo" className={styles.image} />
             <ul>
               {routes.map(({ to, name }) => (
                 <li key={to}>
