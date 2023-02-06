@@ -5,6 +5,7 @@ import {
   ProductTitle
 } from '../components'
 import { Product } from '../interfaces/Product'
+import '../styles/custom-styles.css'
 
 const product: Product = {
   id: '1',
@@ -18,20 +19,25 @@ export const ShoppingPage = () => {
       <h1>Shopping Store</h1>
       <hr />
       <div className="product-card-wrapper">
-        <ProductCard product={product}>
-          <ProductCard.Image title={product.title} />
-          <ProductCard.Title />
-          <ProductCard.Buttons />
+        <ProductCard product={product} className="bg-dark text-white">
+          <ProductCard.Image title={product.title} className="custom-image" />
+          <ProductCard.Title className="text-white text-bold" />
+          <ProductCard.Buttons className="custom-buttons" />
         </ProductCard>
-        <ProductCard product={product}>
+        <ProductCard product={product} className="bg-dark text-white">
+          <ProductImage
+            title={product.title}
+            image={product.image}
+            className="custom-image"
+          />
+          <ProductTitle title="New Title" className="text-white text-bold" />
+          <ProductButtons className="custom-buttons" />
+        </ProductCard>
+        <ProductCard product={product} style={{ backgroundColor: '#ff0000' }}>
           <ProductImage title={product.title} image={product.image} />
           <ProductTitle title="New Title" />
           <ProductButtons />
         </ProductCard>
-        <ProductCard product={product} />
-        <ProductCard product={product} />
-        <ProductCard product={product} />
-        <ProductCard product={product} />
       </div>
     </div>
   )
