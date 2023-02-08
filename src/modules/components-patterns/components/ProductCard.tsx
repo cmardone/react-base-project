@@ -3,18 +3,30 @@ import { useProduct } from '../hooks/useProduct'
 import ProductContext from './ProductContext'
 import styles from '../styles/styles.module.css'
 import { Product } from '../interfaces/Product'
+import { OnChangeArgs } from '../interfaces/OnChangeArgs'
 
 export interface Props {
   product: Product
   children?: ReactElement | ReactElement[]
   className?: string
   style?: CSSProperties
+  value?: number
+  onChange?: (args: OnChangeArgs) => void
 }
 
-export const ProductCard = ({ children, product, className, style }: Props) => {
+export const ProductCard = ({
+  children,
+  product,
+  className,
+  style,
+  value,
+  onChange
+}: Props) => {
   const { Provider } = ProductContext
   const { increaseByHandle, quantity } = useProduct({
-    value: product.quantity
+    product,
+    onChange,
+    value
   })
   return (
     <>

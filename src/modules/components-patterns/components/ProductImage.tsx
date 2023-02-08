@@ -4,7 +4,7 @@ import noImage from '../assets/no-image.jpg'
 import styles from '../styles/styles.module.css'
 
 export interface Props {
-  title: string
+  title?: string
   image?: string
   className?: string
   style?: CSSProperties
@@ -14,7 +14,7 @@ export const ProductImage = ({
   image,
   className,
   style,
-  title = ''
+  title = 'image'
 }: Props) => {
   const { product } = useContext(ProductContext)
   const selectedImage = image ? image : product.image

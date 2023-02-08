@@ -16,9 +16,10 @@
   border-radius: 20px;
 }
 
-.product-card-wrapper {
+.product-cards-wrapper {
   display: flex;
   gap: 10px;
+  flex-direction: 'row';
   flex-wrap: wrap;
 }
 
@@ -26,4 +27,10 @@
 .custom-buttons div {
   color: white;
   border-color: white;
+}
+
+.shopping-cart {
+  position: fixed;
+  top: 0px;
+  right: 10px;
 }
