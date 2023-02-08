@@ -14,22 +14,14 @@ export const useShoppingCart = () => {
     count: number
   }) => {
     setshoppingCart((current) => {
-      const productInCart: ProductInCart = current[product.id] || {
-        ...product,
-        count: 0
+      if (count === 0) {
+        const { [product.id]: toDelete, ...rest } = current
+        return rest
       }
-      // If exists, change count
-      if (Math.max(productInCart.count + count, 0) > 0) {
-        productInCart.count += count
-        return {
-          ...current,
-          [product.id]: productInCart
-        }
+      return {
+        ...current,
+        [product.id]: { ...product, count }
       }
-      // Else, delete it
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { [product.id]: toDelete, ...rest } = current
-      return rest
     })
   }
 
